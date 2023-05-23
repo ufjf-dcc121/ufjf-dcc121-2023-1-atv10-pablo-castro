@@ -5,7 +5,12 @@ html {
 #formulario,#itens {
     width: 200px;
 }
+header
+{
+    background-color: black;
+    color: white;
 
+}
 main {
     display: flex;
 }
