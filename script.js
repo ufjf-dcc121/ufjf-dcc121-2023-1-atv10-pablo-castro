@@ -1,4 +1,4 @@
-import {estado} from "./store.js"
+import {store} from "./store.js"
 const form = document.forms.entrada;
         form.addEventListener('submit', envia)
 
@@ -7,11 +7,11 @@ const form = document.forms.entrada;
         function envia (evento) {
             evento.preventDefault()
             console.log('Formilário enviado!')
-            estado++
+            store.estado++
             atualizar()
         }
 
         function atualizar() {
             const ol = document.querySelector('ol')
-            ol.innerHTML = `<li>${estado}</li`
+            ol.innerHTML = `<li>${store.estado}</li`
         }
