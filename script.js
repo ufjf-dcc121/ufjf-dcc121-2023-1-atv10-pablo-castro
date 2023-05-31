@@ -1,14 +1,19 @@
-import {store} from "./store.js"
+import store, {adicionar, GetItems} from "./store.js"
 const form = document.forms.entrada;
         form.addEventListener('submit', envia)
+        form.remover.addEventListener('click',remove)
 
         
         atualizar()
+
+        function remove() {
+            console.log('Remove clickado')
+        }
         function envia (evento) {
             evento.preventDefault()
             console.log('Formilário enviado!')
             const n = form.valor.value
-            store.estado.push(n)
+            adicionar(n)
             form.valor.value = ""
             form.valor.focus()
             atualizar()
@@ -17,10 +22,11 @@ const form = document.forms.entrada;
         function atualizar() {
             const ol = document.querySelector('ol')
             ol.innerHTML = ""
-            for(let i=0;i<store.estado.length;i++){
+            const items = getItems()
+            for(let i=0;i<items().length;i++){
                 const li = document.createElement('li')
-                li.textContent = store.estado[i]
+                li.textContent = items()[i]
                 ol.appendChild(li)
             }
-        
+            items().push
         }
